@@ -1,53 +1,46 @@
 package microservicioParadas.modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "parada")
 public class Parada {
-	// id viaje
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private ObjectId id;
 
-	// posicion
-	@Column
-	private float latitud;
-	@Column
-	private float longitud;
+    private double latitud; 
+    private double longitud; 
 
-	public Parada() {
-	}
+    public Parada() {
+    }
 
-	public Parada(float latitud, float longitud) {
-		this.latitud = latitud;
-		this.longitud = longitud;
-	}
+    public Parada(double latitud, double longitud) {
+        this.latitud = latitud;
+        this.longitud = longitud;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public ObjectId getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
 
-	public float getLatitud() {
-		return latitud;
-	}
+    public double getLatitud() {
+        return latitud;
+    }
 
-	public void setLatitud(float latitud) {
-		this.latitud = latitud;
-	}
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
 
-	public float getLongitud() {
-		return longitud;
-	}
+    public double getLongitud() {
+        return longitud;
+    }
 
-	public void setLongitud(float longitud) {
-		this.longitud = longitud;
-	}
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
 }

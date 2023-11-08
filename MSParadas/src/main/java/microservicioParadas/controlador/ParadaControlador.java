@@ -2,6 +2,7 @@ package microservicioParadas.controlador;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,14 +34,15 @@ public class ParadaControlador {
 
 	// eliminar parada
 	@DeleteMapping("/borrar/{idParada}")
-	public void eliminarParada(@PathVariable int idParada) {
+	public void eliminarParada(@PathVariable ObjectId idParada) {
 		paradaRepositorio.deleteById(idParada);
 	}
 
 	// actualizar parada
 	@PutMapping("/actualizarParada/{idParada}/{latitud}/{longitud}")
-	public void modificarParada(@PathVariable int idParada, @PathVariable float latitud, @PathVariable float longitud) {
-		paradaRepositorio.actualizarParada(idParada, latitud, longitud);
+	public void modificarParada(@PathVariable ObjectId idParada, @PathVariable double latitud,
+			@PathVariable double longitud) {
+		paradaServicio.actualizarParada(idParada, latitud, longitud);
 	}
 
 	// buscar paradas cercanas
