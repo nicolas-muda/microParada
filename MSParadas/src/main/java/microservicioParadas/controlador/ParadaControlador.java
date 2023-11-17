@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import microservicioParadas.modelo.Parada;
 import microservicioParadas.repositorio.ParadaRepositorio;
 import microservicioParadas.servicio.ParadaServicio;
 
 @RestController
 @RequestMapping("/MSParada")
+@Tag(name = "Servicio Parada", description = "se encarga de todo lo referente a las paradas")
 public class ParadaControlador {
 
 	@Autowired
