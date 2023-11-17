@@ -8,7 +8,6 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import microservicioParadas.controlador.ParadaControlador;
 import microservicioParadas.modelo.Parada;
 import microservicioParadas.repositorio.ParadaRepositorio;
 
