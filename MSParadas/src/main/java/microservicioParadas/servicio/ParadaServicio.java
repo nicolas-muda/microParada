@@ -8,6 +8,7 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import microservicioParadas.dtos.ParadaDto;
 import microservicioParadas.modelo.Parada;
 import microservicioParadas.repositorio.ParadaRepositorio;
 
@@ -44,6 +45,14 @@ public class ParadaServicio {
 			parada.setLongitud(longitud);
 			paradaRepositorio.save(parada);
 		}
+	}
+
+	public void crearParada(ParadaDto p) {
+		// TODO Auto-generated method stub
+		double latitud = p.getLatitud();
+		double longitud = p.getLongitud();
+		Parada nuevaParada = new Parada(latitud, longitud);
+		paradaRepositorio.save(nuevaParada);
 	}
 
 }

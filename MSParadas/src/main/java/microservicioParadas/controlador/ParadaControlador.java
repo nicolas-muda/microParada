@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import microservicioParadas.dtos.ParadaDto;
 import microservicioParadas.modelo.Parada;
 import microservicioParadas.repositorio.ParadaRepositorio;
 import microservicioParadas.servicio.ParadaServicio;
@@ -30,8 +31,8 @@ public class ParadaControlador {
 
 	// crear Parada
 	@PostMapping
-	public void crearParada(@RequestBody Parada p) {
-		paradaRepositorio.save(p);
+	public void crearParada(@RequestBody ParadaDto p) {
+		paradaServicio.crearParada(p);
 	}
 
 	// eliminar parada
